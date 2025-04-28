@@ -85,4 +85,5 @@ VALIDATE $? " install mongodb-client"
 
 mongo --host mongodb.joindevops.shop </app/schema/catalogue.js &>>$LOGFILE
 
+
 VALIDATE $? "Load Schema"
