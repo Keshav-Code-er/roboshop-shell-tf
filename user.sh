@@ -55,7 +55,7 @@ npm install &>>$LOGFILE
 VALIDATE $? "Install NodeJS"
 
 #Give the full path of user.service because we inside the /app
-cp /home/centos/roboshop-shell/user.service /etc/systemd/system/user.service &>>$LOGFILE
+cp /home/centos/roboshop-shell-tf/user.service /etc/systemd/system/user.service &>>$LOGFILE
 
 VALIDATE $? "Setup SystemD user Service"
 
@@ -75,7 +75,7 @@ systemctl start user &>>$LOGFILE
 
 VALIDATE $? "Install NodeJS"
 
-cp /home/centos/roboshop-shell/mongo.repo /etc/yum.repos.d/mongo.repo  &>>$LOGFILE
+cp /home/centos/roboshop-shell-tf/mongo.repo /etc/yum.repos.d/mongo.repo  &>>$LOGFILE
 
 VALIDATE $? "setup MongoDB repo "
 
