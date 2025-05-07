@@ -55,7 +55,7 @@ npm install &>>$LOGFILE
 VALIDATE $? "Install NodeJS"
 
 #Give the full path of cart.service because we inside the /app
-cp /home/centos/roboshop-shell/cart.service /etc/systemd/system/cart.service &>>$LOGFILE
+cp /home/centos/roboshop-shell-tf/cart.service /etc/systemd/system/cart.service &>>$LOGFILE
 
 VALIDATE $? "Setup SystemD cart Service"
 

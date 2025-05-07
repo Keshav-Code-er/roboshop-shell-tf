@@ -30,7 +30,7 @@ dnf module disable mysql -y &>>$LOGFILE
 
 VALIDATE $? "Disable Module"
 
-cp /home/centos/roboshop-shell/mysql.repo /etc/yum.repos.d/mysql.repo &>>$LOGFILE
+cp /home/centos/roboshop-shell-tf/mysql.repo /etc/yum.repos.d/mysql.repo &>>$LOGFILE
 
 VALIDATE $? "Download the application code"
 
