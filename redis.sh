@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash
 
 DATE=$(date +%F)
 LOGDIR=/tmp
