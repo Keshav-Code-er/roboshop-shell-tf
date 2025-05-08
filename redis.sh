@@ -28,13 +28,13 @@ VALIDATE() {
 
 
 
-dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOGFILE
+# dnf install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOGFILE
 
-VALIDATE $? "Installing Redis Repo. "
+# VALIDATE $? "Installing Redis Repo. "
 
-dnf module enable redis:remi-6.2 -y &>>$LOGFILE
+# dnf module enable redis:remi-6.2 -y &>>$LOGFILE
 
-VALIDATE $? "Enable Redis:remi-6.2"
+# VALIDATE $? "Enable Redis:remi-6.2"
 
 dnf install redis -y &>>$LOGFILE
 
