@@ -58,7 +58,7 @@ mv target/shipping-1.0.jar shipping.jar &>>$LOGFILE
 
 VALIDATE $? "Target Shipping"
 
-cp /home/centos/roboshop-shell/shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
+cp /home/centos/roboshop-shell-tf/shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
 
 VALIDATE $? "Setup SystemD Shipping Service"
 
