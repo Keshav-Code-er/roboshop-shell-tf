@@ -46,13 +46,10 @@ unzip /tmp/shipping.zip &>>$LOGFILE
 
 VALIDATE $? "Unzip shipping"
 
-cd /app &>>$LOGFILE
-
-VALIDATE $? "Dependencies"
-
 mvn clean package &>>$LOGFILE
 
 VALIDATE $? "Clean Package"
+
 
 mv target/shipping-1.0.jar shipping.jar &>>$LOGFILE
 
@@ -66,15 +63,19 @@ systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "Demon reload"
 
+systemctl enable shipping &>>$LOGFILE
+
+VALIDATE $? "Enable Shipping"
+
 systemctl start shipping &>>$LOGFILE
 
 VALIDATE $? "Start Shipping"
 
 dnf install mysql -y &>>$LOGFILE
 
-VALIDATE $? "Install mysql"
+VALIDATE $? "Installing mysql"
 
-mysql -h  <mysql.joindevops.shop > -uroot -RoboShop@1 </app/schema/shipping.sql &>>$LOGFILE
+mysql -h  mysql.joindevops.shop  -uroot -RoboShop@1 < /app/schema/shipping.sql  &>>$LOGFILE
 
 VALIDATE $? "Load Schema"
 
