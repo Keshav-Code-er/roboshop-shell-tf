@@ -46,16 +46,19 @@ unzip /tmp/shipping.zip &>>$LOGFILE
 
 VALIDATE $? "Unzip shipping"
 
+cd /app &>>$LOGFILE
+
+VALIDATE $? "Dependencies"
+
 mvn clean package &>>$LOGFILE
 
 VALIDATE $? "Clean Package"
-
 
 mv target/shipping-1.0.jar shipping.jar &>>$LOGFILE
 
 VALIDATE $? "Target Shipping"
 
-cp /home/centos/roboshop-shell-tf/shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
+cp /home/centos/roboshop-shell/shipping.service /etc/systemd/system/shipping.service &>>$LOGFILE
 
 VALIDATE $? "Setup SystemD Shipping Service"
 
@@ -63,19 +66,15 @@ systemctl daemon-reload &>>$LOGFILE
 
 VALIDATE $? "Demon reload"
 
-systemctl enable shipping &>>$LOGFILE
-
-VALIDATE $? "Enable Shipping"
-
 systemctl start shipping &>>$LOGFILE
 
 VALIDATE $? "Start Shipping"
 
 dnf install mysql -y &>>$LOGFILE
 
-VALIDATE $? "Installing mysql"
+VALIDATE $? "Install mysql"
 
-mysql -h  < mysql.joindevops.shop > -uroot -RoboShop@1 <  /app/db/schema.sql  &>>$LOGFILE
+mysql -h  <mysql.joindevops.shop > -uroot </app/schema/shipping.sql &>>$LOGFILE
 
 VALIDATE $? "Load Schema"
 
