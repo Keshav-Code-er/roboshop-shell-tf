@@ -70,11 +70,11 @@ systemctl start shipping &>>$LOGFILE
 
 VALIDATE $? "Start Shipping"
 
-dnf install mysql -y &>>$LOGFILE
+yum install mysql -y  &>>$LOGFILE
 
 VALIDATE $? "Install mysql"
 
-mysql -h  <mysql.joindevops.shop > -uroot RoboShop@1 <  /app/schema/shipping.sql &>>$LOGFILE
+mysql -h  mysql.joindevops.shop -uroot  -RoboShop@1 < /app/schema/shipping.sql  &>>$LOGFILE
 
 VALIDATE $? "Load Schema"
 
