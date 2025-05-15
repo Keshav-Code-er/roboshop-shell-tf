@@ -28,18 +28,15 @@ VALIDATE() {
 
 
 
-# dnf -y install centos-release-stream
-# dnf -y swap centos-{linux,stream}-repos
-# dnf -y distro-sync
-# yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOGFILE
+yum install https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y &>>$LOGFILE
 
-# VALIDATE $? "Installing Redis Repo. "
+VALIDATE $? "Installing Redis Repo. "
 
-# yum module enable redis:remi-6.2 -y &>>$LOGFILE
+yum module enable redis:remi-6.2 -y &>>$LOGFILE
 
-# VALIDATE $? "Enable Redis:remi-6.2"
+VALIDATE $? "Enable Redis:remi-6.2"
 
-dnf install redis -y &>>$LOGFILE
+yum install redis -y &>>$LOGFILE
 
 VALIDATE $? "Install Redis 6.2"
 
