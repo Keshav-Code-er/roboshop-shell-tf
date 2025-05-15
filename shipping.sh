@@ -74,7 +74,7 @@ yum install mysql -y  &>>$LOGFILE
 
 VALIDATE $? "Install mysql"
 
-mysql -h  mysql.joindevops.shop -uroot  -RoboShop@1 < /app/schema/shipping.sql  &>>$LOGFILE
+mysql -h  mysql.joindevops.shop -uroot  -RoboShop@1 < /app/db/schema.sql  &>>$LOGFILE
 
 VALIDATE $? "Load Schema"
 
